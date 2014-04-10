@@ -12,3 +12,4 @@ For Professor Use Only: Team Number 5
 | [Alexandria Mack](http://github.com/amm4108/) | Physics Engine Development |
 | [Erika Ziegler](http://github.com/dragonsushi247/) | Lighting / Camera Development |
 
+[Reference code](http://tomdalling.com/blog/modern-opengl/07-more-lighting-ambient-specular-attenuation-gamma/), great examples of lighting, model loading, etc.
