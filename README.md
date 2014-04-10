@@ -7,8 +7,8 @@ For Professor Use Only: Team Number 6
 
 | Members | Section of Project |
 | -------------- | ------------------------ |
-| Andrew Mandula(http://github.com/ajman1101/) | Artist/Model Importer Architecture |
-| Sarah Plotkin(http://github.com/pushasha/)| Physics Engine Development / Game Logic | 
-| Alexandria Mack(http://github.com/amm4108/) | Physics Engine Development |
-| Erika Ziegler(http://github.com/dragonsushi247/) | Lighting / Camera Development |
+| [Andrew Mandula](http://github.com/ajman1101/) | Artist/Model Importer Architecture |
+| [Sarah Plotkin](http://github.com/pushasha/)| Physics Engine Development / Game Logic | 
+| [Alexandria Mack](http://github.com/amm4108/) | Physics Engine Development |
+| [Erika Ziegler](http://github.com/dragonsushi247/) | Lighting / Camera Development |
 
