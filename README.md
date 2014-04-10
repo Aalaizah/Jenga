@@ -1,9 +1,9 @@
 #Jenga
-=====
+-----------
 
 A physics programming project in C++ that "realistically" simulates the 3D physics of a game of Jenga. Project for Spring 2014 Data Structure & Algorithms class taught by Luis Bobadilla at Rochester Institute of technology
 
-For Professor Use Only: Team Number 6
+For Professor Use Only: Team Number 5
 
 | Members | Section of Project |
 | -------------- | ------------------------ |
