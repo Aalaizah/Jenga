@@ -40,54 +40,71 @@ void display(void)
   glRotatef( rotate_y, 0.0, 1.0, 0.0 );
 
 //  drawing code goes here
-	glBegin(GL_POLYGON);
+	/*glBegin(GL_LINE);
+	glVertex3f(-1,-.125,.25);
+	glVertex3f(1,-.125,1);
+	glVertex3f(-1,.125,1);
+	glVertex3f(1,.125,1);
+	glVertex3f(-1,.125,-1);
+	glVertex3f(1,.125,-1);
+	glVertex3f(-1,-.125,-1);
+	glVertex3f(1,.125,-1);
+	glEnd();*/
 
 	// White side - BACK
 glBegin(GL_POLYGON);
 glColor3f(   1.0,  1.0, 1.0 );
-glVertex3f(  0.5, -0.5, 0.5 );
-glVertex3f(  0.5,  0.5, 0.5 );
-glVertex3f( -0.5,  0.5, 0.5 );
-glVertex3f( -0.5, -0.5, 0.5 );
+glVertex3f(  0.15, -0.125, 0.5 );
+glVertex3f(  0.15,  0.125, 0.5 );
+glVertex3f( -0.15,  0.125, 0.5 );
+glVertex3f( -0.15, -0.125, 0.5 );
 glEnd();
  
 // Purple side - RIGHT
 glBegin(GL_POLYGON);
 glColor3f(  1.0,  0.0,  1.0 );
-glVertex3f( 0.5, -0.5, -0.5 );
-glVertex3f( 0.5,  0.5, -0.5 );
-glVertex3f( 0.5,  0.5,  0.5 );
-glVertex3f( 0.5, -0.5,  0.5 );
+glVertex3f( 0.15, -0.125, -0.5 );
+glVertex3f( 0.15,  0.125, -0.5 );
+glVertex3f( 0.15,  0.125,  0.5 );
+glVertex3f( 0.15, -0.125,  0.5 );
 glEnd();
  
 // Green side - LEFT
 glBegin(GL_POLYGON);
 glColor3f(   0.0,  1.0,  0.0 );
-glVertex3f( -0.5, -0.5,  0.5 );
-glVertex3f( -0.5,  0.5,  0.5 );
-glVertex3f( -0.5,  0.5, -0.5 );
-glVertex3f( -0.5, -0.5, -0.5 );
+glVertex3f( -0.15, -0.125,  0.5 );
+glVertex3f( -0.15,  0.125,  0.5 );
+glVertex3f( -0.15,  0.125, -0.5 );
+glVertex3f( -0.15, -0.125, -0.5 );
 glEnd();
  
 // Blue side - TOP
 glBegin(GL_POLYGON);
 glColor3f(   0.0,  0.0,  1.0 );
-glVertex3f(  0.5,  0.5,  0.5 );
-glVertex3f(  0.5,  0.5, -0.5 );
-glVertex3f( -0.5,  0.5, -0.5 );
-glVertex3f( -0.5,  0.5,  0.5 );
+glVertex3f(  0.15,  0.125,  0.5 );
+glVertex3f(  0.15,  0.125, -0.5 );
+glVertex3f( -0.15,  0.125, -0.5 );
+glVertex3f( -0.15,  0.125,  0.5 );
 glEnd();
  
 // Red side - BOTTOM
 glBegin(GL_POLYGON);
 glColor3f(   1.0,  0.0,  0.0 );
-glVertex3f(  0.5, -0.5, -0.5 );
-glVertex3f(  0.5, -0.5,  0.5 );
-glVertex3f( -0.5, -0.5,  0.5 );
-glVertex3f( -0.5, -0.5, -0.5 );
+glVertex3f(  0.15, -0.125, -0.5 );
+glVertex3f(  0.15, -0.125,  0.5 );
+glVertex3f( -0.15, -0.125,  0.5 );
+glVertex3f( -0.15, -0.125, -0.5 );
+glEnd();
 
+// Yellow side - FRONT
+glBegin(GL_POLYGON);
+glColor3f( 1.0, 1.0, 0.0 );
+glVertex3f( -0.15, 0.125, -0.5 );
+glVertex3f( -0.15, -0.125, -0.5 );
+glVertex3f( 0.15, -0.125, -0.5 );
+glVertex3f( 0.15, 0.125, -0.5 );
+glEnd();
 
-	glEnd();
 //  start processing buffered OpenGL routines 
     glutSwapBuffers();
 }
