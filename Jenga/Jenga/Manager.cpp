@@ -2,6 +2,7 @@
 #include <iostream>
 #include <math.h>
 #include <GL/glut.h>
+#include "Block.h"
 
 using namespace std;
 
@@ -12,6 +13,7 @@ double rotate_x=0;
 
 Manager::Manager(void)
 {
+
 }
 
 Manager::~Manager(void)
@@ -152,6 +154,17 @@ void init (void)
  */
 int main(int argc, char** argv)
 {
+
+	// #DEBUG
+	Vec3* myVecs[8];
+	for (int i = 0; i < BLOCKVERTS; i++){
+		myVecs[i] = new Vec3(42.0);
+	}
+	Block *myBlock = new Block(myVecs);
+
+
+	// END #DEBUG
+
 	// initialize GLUT using command line arguments
     glutInit(&argc, argv);
 
