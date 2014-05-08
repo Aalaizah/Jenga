@@ -12,7 +12,7 @@
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{09B501C0-8724-4CA8-8351-2C84CB059914}</ProjectGuid>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <Keyword>ManagedCProj</Keyword>
     <RootNamespace>Jenga</RootNamespace>
   </PropertyGroup>
@@ -20,7 +20,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v110</PlatformToolset>
+    <PlatformToolset>v100</PlatformToolset>
     <CLRSupport>true</CLRSupport>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
@@ -69,12 +69,17 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="Block.h" />
-    <ClInclude Include="Manager.h" />
+    <ClInclude Include="Camera.h" />
+    <ClInclude Include="World.h" />
     <ClInclude Include="System.h" />
+    <ClInclude Include="SystemClass.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Block.cpp" />
-    <ClCompile Include="Manager.cpp" />
+    <ClCompile Include="Camera.cpp" />
+    <ClCompile Include="World.cpp" />
+    <ClCompile Include="System.cpp" />
+    <ClCompile Include="SystemClass.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

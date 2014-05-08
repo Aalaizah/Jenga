@@ -1,12 +1,8 @@
-#include "Manager.h"
-#include <iostream>
-#include <math.h>
-#include <GL/glut.h>
-#include "Block.h"
-
+#include "World.h"
 using namespace std;
 
 int window;
+Camera* mainCam;
 
 double rotate_y=0; 
 double rotate_x=0;
@@ -143,6 +139,9 @@ void init (void)
     glLoadIdentity();
 // orthographic projection
     glOrtho(-10.0, 10.0, -10.0, 10.0, -10.0, 10.0);
+
+	//camera init
+	mainCam = Camera::GetInstance();
 }
 
 /* 

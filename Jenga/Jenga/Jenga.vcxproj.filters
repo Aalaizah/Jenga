@@ -15,21 +15,36 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Manager.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Block.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="System.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Camera.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SystemClass.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="World.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Manager.cpp">
+    <ClCompile Include="Block.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Block.cpp">
+    <ClCompile Include="Camera.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="System.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SystemClass.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="World.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
