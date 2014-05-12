@@ -5,10 +5,12 @@
 #include <iostream>
 #include <math.h>
 
+
 //OpenGL
-//#include "GL\glew.h"
+#include "GL\glew.h"
 //#include "GL\freeglut.h"
 //#include "GL\freeglut_ext.h"
+#include <GL/glut.h>
 
 
 //Application
