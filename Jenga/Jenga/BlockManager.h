@@ -25,11 +25,12 @@ struct BlockAsset {
 
 struct Block {
     BlockAsset* asset;
-    //glm::mat4 transform;
+    glm::mat4 transform;
 
+	// default constructor
     Block() :
-        asset(NULL)
-        //transform()
+        asset(NULL),
+        transform()
     {}
 }; // end struct Block
 

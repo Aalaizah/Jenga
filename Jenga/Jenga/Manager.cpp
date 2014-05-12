@@ -1,7 +1,4 @@
 #include "Manager.h"
-#include <iostream>
-#include <math.h>
-#include <GL/glut.h>
 
 using namespace std;
 
@@ -154,9 +151,6 @@ void init (void)
 int main(int argc, char** argv)
 {
 
-
-
-	// END #DEBUG
 
 	// initialize GLUT using command line arguments
     glutInit(&argc, argv);

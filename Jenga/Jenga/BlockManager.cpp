@@ -19,14 +19,14 @@ void BlockManager::loadBlockAsset(){
 	jBlockAsset.drawCount = 6 * 2 * 3;
 	// #TODO: Init texture and shaders
 
-	__glewGenBuffers(1, &jBlockAsset.vbo);
-	__glewGenVertexArrays(1, &jBlockAsset.vao);
+	glGenBuffers(1, &jBlockAsset.vbo);
+	glGenVertexArrays(1, &jBlockAsset.vao);
 
 	// bind the VAO
-	__glewBindVertexArray(jBlockAsset.vao);
+	glBindVertexArray(jBlockAsset.vao);
 
 	// bind the VBO
-	__glewBindBuffer(GL_ARRAY_BUFFER, jBlockAsset.vbo);
+	glBindBuffer(GL_ARRAY_BUFFER, jBlockAsset.vbo);
 
 	GLfloat vertexData[] = {
         //  X     Y     Z       U     V
@@ -97,18 +97,16 @@ void BlockManager::loadBlockAsset(){
 
 // ***** HELPER FUNCTIONS *****
 
-/*
-// convenience function that returns a translation matrix
+// returns a translation matrix
 glm::mat4 translate(GLfloat x, GLfloat y, GLfloat z) {
     return glm::translate(glm::mat4(), glm::vec3(x,y,z));
 }
 
 
-// convenience function that returns a scaling matrix
+// returns a scaling matrix
 glm::mat4 scale(GLfloat x, GLfloat y, GLfloat z) {
     return glm::scale(glm::mat4(), glm::vec3(x,y,z));
 }
 
 
 
-*/
