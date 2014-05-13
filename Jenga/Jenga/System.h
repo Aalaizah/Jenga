@@ -29,8 +29,11 @@
 #include <glm\gtc\type_ptr.hpp>
 #include <glm\gtx\transform.hpp>
 
-// HEXAHEDRON VERTICES ENUM (for accessing arrays)
+// ENUMS
 // #TODO: Delete this?
 enum VertPos {TOP_FRONT_L, TOP_FRONT_R, TOP_BACK_R, TOP_BACK_L, BOTTOM_FRONT_L, BOTTOM_FRONT_R , BOTTOM_BACK_L, BOTTOM_BACK_R};
+
+// DEFINES
+#define PI 3.14159f
 
 #endif //__SYSTEM_H_

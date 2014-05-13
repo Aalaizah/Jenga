@@ -1,11 +1,12 @@
 #pragma once
 #include "System.h"
+#include "Camera.h"
 
-class Manager
+class World
 {
 public:
-	Manager(void);
-	~Manager(void);
+	World(void);
+	~World(void);
 	int main(int argc, char** argv);
 };
 

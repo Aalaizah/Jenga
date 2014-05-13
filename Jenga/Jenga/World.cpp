@@ -1,18 +1,19 @@
-#include "Manager.h"
+#include "World.h"
 
 using namespace std;
 
 int window;
+Camera* mainCam;
 
 double rotate_y=0; 
 double rotate_x=0;
 
-Manager::Manager(void)
+World::World(void)
 {
 
 }
 
-Manager::~Manager(void)
+World::~World(void)
 {
 }
 
@@ -139,7 +140,11 @@ void init (void)
     glLoadIdentity();
 // orthographic projection
     glOrtho(-10.0, 10.0, -10.0, 10.0, -10.0, 10.0);
-}
+
+// camera init
+	mainCam = Camera::GetInstance();
+
+}// end init
 
 /* 
  *  Declare initial window size, position, and display mode
