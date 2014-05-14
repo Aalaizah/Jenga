@@ -1,7 +1,5 @@
 #pragma once
-//#include "Manager.h"
 #include "System.h"
-#include "SystemClass.h"
 
 class Camera
 {

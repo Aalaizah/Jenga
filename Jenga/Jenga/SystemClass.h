@@ -1,7 +1,8 @@
 //***System singleton for camera***
+#pragma once
 #include "System.h"
 
-public class SystemClass
+class SystemClass
 {
 public:
 	static SystemClass* GetInstance(); // Singleton Accessor

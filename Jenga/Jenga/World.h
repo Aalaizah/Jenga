@@ -1,6 +1,5 @@
 #pragma once
 #include "System.h"
-#include "Camera.h"
 
 class World
 {
