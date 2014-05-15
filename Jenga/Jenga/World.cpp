@@ -1,12 +1,15 @@
 #include "World.h"
+#include "SystemClass.h"
+#include "Block.h"
+
 
 using namespace std;
 
 int window;
 Camera* mainCam;
 
-double rotate_y=0; 
-double rotate_x=0;
+//double rotate_y=0; 
+//double rotate_x=0;
 
 World::World(void)
 {
@@ -35,8 +38,8 @@ void display(void)
 	glLoadIdentity();
 
 	// Rotate when user changes rotate_x and rotate_y
-  glRotatef( rotate_x, 1.0, 0.0, 0.0 );
-  glRotatef( rotate_y, 0.0, 1.0, 0.0 );
+  //glRotatef( rotate_x, 1.0, 0.0, 0.0 );
+  //glRotatef( rotate_y, 0.0, 1.0, 0.0 );
 
 //  drawing code goes here
 	/*glBegin(GL_LINE);
@@ -53,61 +56,62 @@ void display(void)
 	// White side - BACK
 glBegin(GL_POLYGON);
 glColor3f(   1.0,  1.0, 1.0 );
-glVertex3f(  0.15, -0.125, 0.5 );
-glVertex3f(  0.15,  0.125, 0.5 );
-glVertex3f( -0.15,  0.125, 0.5 );
-glVertex3f( -0.15, -0.125, 0.5 );
+glVertex3f( 0.15, -0.125, 0.5 ); // BOTTOM_BACK_RIGHT
+glVertex3f( 0.15, 0.125, 0.5 ); // TOP_BACK_RIGHT
+glVertex3f( -0.15, 0.125, 0.5 ); // TOP_BACK_LEFT
+glVertex3f( -0.15, -0.125, 0.5 ); // BOTTOM_BACK_LEFT
 glEnd();
  
 // Purple side - RIGHT
 glBegin(GL_POLYGON);
 glColor3f(  1.0,  0.0,  1.0 );
-glVertex3f( 0.15, -0.125, -0.5 );
-glVertex3f( 0.15,  0.125, -0.5 );
-glVertex3f( 0.15,  0.125,  0.5 );
-glVertex3f( 0.15, -0.125,  0.5 );
+glVertex3f( 0.15, -0.125, -0.5 ); // BOTTOM_FRONT_RIGHT
+glVertex3f( 0.15, 0.125, -0.5 ); // TOP_FRONT_RIGHT
+glVertex3f( 0.15, 0.125, 0.5 ); // TOP_BACK_RIGHT
+glVertex3f( 0.15, -0.125,  0.5 ); // BOTTOM_BACK_RIGHT
 glEnd();
  
 // Green side - LEFT
 glBegin(GL_POLYGON);
 glColor3f(   0.0,  1.0,  0.0 );
-glVertex3f( -0.15, -0.125,  0.5 );
-glVertex3f( -0.15,  0.125,  0.5 );
-glVertex3f( -0.15,  0.125, -0.5 );
-glVertex3f( -0.15, -0.125, -0.5 );
+glVertex3f( -0.15, -0.125,  0.5 ); // BOTTOM_BACK_LEFT
+glVertex3f( -0.15, 0.125, 0.5 ); // TOP_BACK_LEFT
+glVertex3f( -0.15, 0.125, -0.5 ); // TOP_FRONT_LEFT
+glVertex3f( -0.15, -0.125, -0.5 ); // BOTTOM_FRONT_LEFT
 glEnd();
  
 // Blue side - TOP
 glBegin(GL_POLYGON);
 glColor3f(   0.0,  0.0,  1.0 );
-glVertex3f(  0.15,  0.125,  0.5 );
-glVertex3f(  0.15,  0.125, -0.5 );
-glVertex3f( -0.15,  0.125, -0.5 );
-glVertex3f( -0.15,  0.125,  0.5 );
+glVertex3f(  0.15, 0.125,  0.5 ); // TOP_BACK_RIGHT
+glVertex3f(  0.15, 0.125, -0.5 );// TOP_FRONT_RIGHT
+glVertex3f( -0.15, 0.125, -0.5 ); // TOP_FRONT_LEFT
+glVertex3f( -0.15, 0.125,  0.5 ); // TOP_BACK_LEFT
 glEnd();
  
 // Red side - BOTTOM
 glBegin(GL_POLYGON);
 glColor3f(   1.0,  0.0,  0.0 );
-glVertex3f(  0.15, -0.125, -0.5 );
-glVertex3f(  0.15, -0.125,  0.5 );
-glVertex3f( -0.15, -0.125,  0.5 );
-glVertex3f( -0.15, -0.125, -0.5 );
+glVertex3f(  0.15, -0.125, -0.5 ); // BOTTOM_FRONT_RIGHT
+glVertex3f(  0.15, -0.125,  0.5 ); // BOTTOM_BACK_RIGHT
+glVertex3f( -0.15, -0.125,  0.5 ); // BOTTOM_BACK_LEFT
+glVertex3f( -0.15, -0.125, -0.5 ); // BOTTOM_FRONT_LEFT
 glEnd();
 
 // Yellow side - FRONT
 glBegin(GL_POLYGON);
 glColor3f( 1.0, 1.0, 0.0 );
-glVertex3f( -0.15, 0.125, -0.5 );
-glVertex3f( -0.15, -0.125, -0.5 );
-glVertex3f( 0.15, -0.125, -0.5 );
-glVertex3f( 0.15, 0.125, -0.5 );
+glVertex3f( -0.15, 0.125, -0.5 ); // TOP_FRONT_LEFT
+glVertex3f( -0.15, -0.125, -0.5 ); // BOTTOM_FRONT_LEFT
+glVertex3f( 0.15, -0.125, -0.5 ); // BOTTOM_FRONT_RIGHT
+glVertex3f( 0.15, 0.125, -0.5 ); // TOP_FRONT_RIGHT
 glEnd();
 
 //  start processing buffered OpenGL routines 
     glutSwapBuffers();
 }
 
+/*
 void specialKeys( int key, int x, int y ) {
  
   //  Right arrow - increase rotation by 5 degree
@@ -128,6 +132,7 @@ void specialKeys( int key, int x, int y ) {
   glutPostRedisplay();
  
 }
+*/
 
 void init (void) 
 {
@@ -153,10 +158,17 @@ void init (void)
  *  Register callback function to display graphics.
  *  Enter main loop and process events.
  */
+
+/*
 int main(int argc, char** argv)
 {
+	
+	//Get System Instance
+	SystemClass* pSystem = SystemClass::GetInstance();
 
 
+#pragma region OLD_GLUT_SETUP
+	/* Old Setup
 	// initialize GLUT using command line arguments
     glutInit(&argc, argv);
 
@@ -178,6 +190,7 @@ int main(int argc, char** argv)
 	// our initialization function from above
     init();
 
+
 	// callback for display - gets called whenever window needs to be redisplayed
     glutDisplayFunc(display); 
 	
@@ -189,5 +202,10 @@ int main(int argc, char** argv)
 	// event handling loop - keeps program from exiting after
 	// doing all of the above work
     glutMainLoop();
+
+
+	#pragma endregion
+
+
     return 0;   
-}
+} */

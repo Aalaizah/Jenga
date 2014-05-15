@@ -86,6 +86,7 @@ public:
 	float StopClock(void);//Stops the time count and returns the number of seconds passed
 	float LapClock(void);//Checks the time difference between startclock and current call
 
+	bool InitCallbacks(void); // Indicates OpenGL what functors are going to be used as callbacks
 	//FolderClass* m_pFolder;
 
 private:
@@ -123,7 +124,7 @@ private:
 	void (*m_pMouse) (int button, int state, int x, int y); //Mouse Functor
 	void (*m_pMouseWheel) (int wheel, int direction, int x, int y); //Mouse Wheel Functor
 
-	bool InitCallbacks(void); // Indicates OpenGL what functors are going to be used as callbacks
+	
 };
 
 //***end***
