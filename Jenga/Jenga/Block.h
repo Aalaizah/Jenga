@@ -9,6 +9,8 @@ public:
 	Block(const Block& other);
 	~Block(void);
 
+	virtual void Render(void);
+
 	glm::mat4 m_mModel; //GLM Model Matrix
 
 private:
@@ -50,7 +52,7 @@ private:
 					std::string a_sFShaderFile = "Shaders\\fshader.glsl");
 
 	virtual void InitCPU (const int a_nVertices = 3);
-	virtual void Render(void);
+
 
 #pragma endregion
 
