@@ -5,6 +5,8 @@
 class SystemClass;
 class Camera;
 class World;
+class CameraClass;
+class Block;
 
 #pragma comment( lib, "freeglut.lib" )
 #pragma comment( lib, "glew32.lib" )
@@ -21,6 +23,7 @@ class World;
 #include <string>
 #include <vector>
 #include <math.h>
+#include <array>
 
 // OpenGL
 
@@ -38,10 +41,13 @@ class World;
 #include "Camera.h"
 #include "World.h"
 #include "BlockManager.h"
+#include "AngelShaderCompiler.h"
 
 // ENUMS
 // #TODO: Delete this?
 enum VertPos {TOP_FRONT_L, TOP_FRONT_R, TOP_BACK_R, TOP_BACK_L, BOTTOM_FRONT_L, BOTTOM_FRONT_R , BOTTOM_BACK_L, BOTTOM_BACK_R};
+
+
 
 // DEFINES
 #define PI 3.14159f

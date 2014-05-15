@@ -17,7 +17,6 @@ private:
 	// vars
 	GLfloat degreesRotated;
 
-	// functions
 
 };// end class
 

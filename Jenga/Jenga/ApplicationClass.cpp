@@ -29,9 +29,11 @@ void ApplicationClass::Init(void)
 {
 	m_pSystem = SystemClass::GetInstance();
 	m_pSystem->WindowName = "Jenga";
-	m_pCamera = Camera::GetInstance();
+	m_pCamera = CameraClass::GetInstance();
 	
 	// #TODO: generate shapes?
+	myBlock = new Block();
+
 }
 void ApplicationClass::Release(void)
 {

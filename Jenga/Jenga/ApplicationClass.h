@@ -5,14 +5,15 @@ Created by Alberto Bobadilla (labigm@rit.edu) in 2013
 #define __APPLICATION_H_
 
 #include "SystemClass.h"
-#include "Camera.h"
+#include "Block.h"
+#include "CameraClass.h"
 
 class ApplicationClass
 {
 	static ApplicationClass* m_pInstance;
 
 	SystemClass* m_pSystem;
-	Camera* m_pCamera;
+	CameraClass* m_pCamera;
 
 public:
 	static ApplicationClass* GetInstance(void);
@@ -35,6 +36,11 @@ private:
 	~ApplicationClass();
 	void Release(void);
 	void Init();
+
+
+	// #DEBUG
+	Block* myBlock;
+	// #END DEBUG
 };
 
 #endif //_APPLICATION_H
