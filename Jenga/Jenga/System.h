@@ -5,6 +5,7 @@
 class SystemClass;
 class Camera;
 class World;
+class BlockManager;
 
 #pragma comment( lib, "freeglut.lib" )
 #pragma comment( lib, "glew32.lib" )

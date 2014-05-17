@@ -3,41 +3,43 @@
 
 #include <list>
 
-// STRUCTS
-struct BlockAsset {
-    //#TODO: Shaders?
-	//#TODO: Textures?
-    GLuint vbo;
-    GLuint vao;
-    GLenum drawType;
-    GLint drawStart;
-    GLint drawCount;
 
-	// default constructor
-    BlockAsset() :
-        vbo(0),
-        vao(0),
-        drawType(GL_TRIANGLES),
-        drawStart(0),
-        drawCount(0)
-    {}
-};// end struct BlockAsset
+// CONSTS
+const float BLOCK_SCALE_X = 2.0;
+const float BLOCK_SCALE_Y = 0.25;
+const float BLOCK_SCALE_Z = 0.5;
+
+const float GRAVITY = -0.000002;
+
+
+// STRUCTS
 
 struct Block {
-    BlockAsset* asset;
-    glm::mat4 transform;
+	glm::vec3 translation;
+	glm::vec3 color;
+	float vy; // downward velocity (?)
 
-	// default constructor
-    Block() :
-        asset(NULL),
-        transform()
-    {}
+	Block(){ // default constructor
+		translation = glm::vec3(0.0, 0.0, 0.0);
+		color = glm::vec3(0.0, 0.0, 1.0);
+	}
+
+	Block(glm::vec3 tlation): translation(tlation){
+		// default color red
+		color.x = 1.0; 
+		color.y = 0.0; 
+		color.z = 0.0; 
+	}// end constructor
+
+
 }; // end struct Block
 
 
 
 
 // CLASS
+
+
 
 class BlockManager
 {
@@ -46,14 +48,18 @@ public:
 	BlockManager(void);
 	~BlockManager(void);
 
+
+	void render(float size, glm::vec3 color, glm::vec3 translation);
+	void renderAll();
+
+	void applyPhysGravity();
+
 private:
 	// vars
-	BlockAsset jBlockAsset;
-	std::list<Block> blockInstances;
-	GLfloat degreesRotated;
+	std::list<Block>* blockList;
 
 	// functions
-	void loadBlockAsset();
+	void initBlockList();
 
 
 

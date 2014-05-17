@@ -4,6 +4,9 @@ using namespace std;
 
 int window;
 Camera* mainCam;
+BlockManager* bManager;
+
+glm::vec3 redColor;
 
 double rotate_y=0; 
 double rotate_x=0;
@@ -50,6 +53,7 @@ void display(void)
 	glVertex3f(1,.125,-1);
 	glEnd();*/
 
+/*
 	// White side - BACK
 glBegin(GL_POLYGON);
 glColor3f(   1.0,  1.0, 1.0 );
@@ -103,7 +107,12 @@ glVertex3f( -0.15, -0.125, -0.5 );
 glVertex3f( 0.15, -0.125, -0.5 );
 glVertex3f( 0.15, 0.125, -0.5 );
 glEnd();
+*/
 
+
+    // RENDER BLOCKS
+
+    bManager->renderAll();
 //  start processing buffered OpenGL routines 
     glutSwapBuffers();
 }
@@ -143,6 +152,18 @@ void init (void)
 
 // camera init
 	mainCam = Camera::GetInstance();
+	bManager = new BlockManager();
+
+// Block Manager Init
+
+
+	// color init
+	glClearColor (0.0, 0.0, 0.0, 1.0); 
+  
+    redColor.x = 1.0; 
+    redColor.y = 0.0; 
+    redColor.z = 0.0; 
+	
 
 }// end init
 

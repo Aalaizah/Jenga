@@ -3,8 +3,8 @@
 
 BlockManager::BlockManager(void)
 {
-	degreesRotated = 0.0f;
-	//#TODO: Create/Load Shaders & Textures
+	blockList = new std::list<Block>();
+	initBlockList();
 
 } // end constructor
 
@@ -13,86 +13,49 @@ BlockManager::~BlockManager(void)
 {
 }
 
-void BlockManager::loadBlockAsset(){
-	jBlockAsset.drawType = GL_TRIANGLES;
-	jBlockAsset.drawStart = 0;
-	jBlockAsset.drawCount = 6 * 2 * 3;
-	// #TODO: Init texture and shaders
+void BlockManager::initBlockList(){
 
-	glGenBuffers(1, &jBlockAsset.vbo);
-	glGenVertexArrays(1, &jBlockAsset.vao);
+	
+	blockList->push_back(Block(glm::vec3(0.2, 0.0, 1.0))); // add block to list with specific translation
+	blockList->push_back(Block());  // add block with default translation
 
-	// bind the VAO
-	glBindVertexArray(jBlockAsset.vao);
+}// end initBlockList
 
-	// bind the VBO
-	glBindBuffer(GL_ARRAY_BUFFER, jBlockAsset.vbo);
 
-	GLfloat vertexData[] = {
-        //  X     Y     Z       U     V
-        // bottom
-        -1.0f,-1.0f,-1.0f,   0.0f, 0.0f,
-         1.0f,-1.0f,-1.0f,   1.0f, 0.0f,
-        -1.0f,-1.0f, 1.0f,   0.0f, 1.0f,
-         1.0f,-1.0f,-1.0f,   1.0f, 0.0f,
-         1.0f,-1.0f, 1.0f,   1.0f, 1.0f,
-        -1.0f,-1.0f, 1.0f,   0.0f, 1.0f,
+void BlockManager::render(float size, glm::vec3 color, glm::vec3 translation)  // can be chaged to any render method (GL_TRIANGLES, etc)
+{ 
+	glPushMatrix();
 
-        // top
-        -1.0f, 1.0f,-1.0f,   0.0f, 0.0f,
-        -1.0f, 1.0f, 1.0f,   0.0f, 1.0f,
-         1.0f, 1.0f,-1.0f,   1.0f, 0.0f,
-         1.0f, 1.0f,-1.0f,   1.0f, 0.0f,
-        -1.0f, 1.0f, 1.0f,   0.0f, 1.0f,
-         1.0f, 1.0f, 1.0f,   1.0f, 1.0f,
+    glColor3f(color.x,color.y,color.z); 
+	glScalef(BLOCK_SCALE_X, BLOCK_SCALE_Y, BLOCK_SCALE_Z);
+	glTranslatef(translation.x, translation.y, translation.z);
 
-        // front
-        -1.0f,-1.0f, 1.0f,   1.0f, 0.0f,
-         1.0f,-1.0f, 1.0f,   0.0f, 0.0f,
-        -1.0f, 1.0f, 1.0f,   1.0f, 1.0f,
-         1.0f,-1.0f, 1.0f,   0.0f, 0.0f,
-         1.0f, 1.0f, 1.0f,   0.0f, 1.0f,
-        -1.0f, 1.0f, 1.0f,   1.0f, 1.0f,
+	// draw cube
+    glutSolidCube(size); 
 
-        // back
-        -1.0f,-1.0f,-1.0f,   0.0f, 0.0f,
-        -1.0f, 1.0f,-1.0f,   0.0f, 1.0f,
-         1.0f,-1.0f,-1.0f,   1.0f, 0.0f,
-         1.0f,-1.0f,-1.0f,   1.0f, 0.0f,
-        -1.0f, 1.0f,-1.0f,   0.0f, 1.0f,
-         1.0f, 1.0f,-1.0f,   1.0f, 1.0f,
 
-        // left
-        -1.0f,-1.0f, 1.0f,   0.0f, 1.0f,
-        -1.0f, 1.0f,-1.0f,   1.0f, 0.0f,
-        -1.0f,-1.0f,-1.0f,   0.0f, 0.0f,
-        -1.0f,-1.0f, 1.0f,   0.0f, 1.0f,
-        -1.0f, 1.0f, 1.0f,   1.0f, 1.0f,
-        -1.0f, 1.0f,-1.0f,   1.0f, 0.0f,
+	glPopMatrix();
+} 
 
-        // right
-         1.0f,-1.0f, 1.0f,   1.0f, 1.0f,
-         1.0f,-1.0f,-1.0f,   1.0f, 0.0f,
-         1.0f, 1.0f,-1.0f,   0.0f, 0.0f,
-         1.0f,-1.0f, 1.0f,   1.0f, 1.0f,
-         1.0f, 1.0f,-1.0f,   0.0f, 0.0f,
-         1.0f, 1.0f, 1.0f,   0.0f, 1.0f
-    };
 
-    glBufferData(GL_ARRAY_BUFFER, sizeof(vertexData), vertexData, GL_STATIC_DRAW);
+void BlockManager::renderAll(){
 
-    // #TODO: connect the xyz to the "vert" attribute of the vertex shader
-    //glEnableVertexAttribArray(gWoodenCrate.shaders->attrib("vert"));
-    //glVertexAttribPointer(gWoodenCrate.shaders->attrib("vert"), 3, GL_FLOAT, GL_FALSE, 5*sizeof(GLfloat), NULL);
+	applyPhysGravity();
+	for (std::list<Block>::iterator b=blockList->begin(); b != blockList->end(); b++){ // iterate through list
+		render(0.5, b->color, b->translation);
+	}// end iteration
 
-    // #TODO: connect the uv coords to the "vertTexCoord" attribute of the vertex shader
-    //glEnableVertexAttribArray(gWoodenCrate.shaders->attrib("vertTexCoord"));
-    //glVertexAttribPointer(gWoodenCrate.shaders->attrib("vertTexCoord"), 2, GL_FLOAT, GL_TRUE,  5*sizeof(GLfloat), (const GLvoid*)(3 * sizeof(GLfloat)));
+}// end renderall
 
-    // unbind the VAO
-    glBindVertexArray(0);
+  
+void BlockManager::applyPhysGravity(){  // temporary "gravity"
 
-} // end loadBlockAsset
+	for (std::list<Block>::iterator b=blockList->begin(); b != blockList->end(); b++){ // iterate through list
+		b->vy += GRAVITY;
+		b->translation.y += b->vy;
+	}// end iteration
+
+}
 
 
 // ***** HELPER FUNCTIONS *****
