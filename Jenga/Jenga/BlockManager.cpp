@@ -51,8 +51,12 @@ void BlockManager::renderAll(){
 void BlockManager::applyPhysGravity(){  // temporary "gravity"
 
 	for (std::list<Block>::iterator b=blockList->begin(); b != blockList->end(); b++){ // iterate through list
-		b->vy += GRAVITY;
-		b->translation.y += b->vy;
+		if(b->translation.y > -3.5)
+		{
+			b->vy += GRAVITY;
+			b->translation.y += b->vy;
+			//std::cout << b->translation.y << std::endl;
+		}
 	}// end iteration
 
 }

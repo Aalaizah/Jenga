@@ -2,6 +2,7 @@
 #include "System.h"
 
 #include <list>
+#include <iostream>
 
 
 // CONSTS
@@ -9,7 +10,7 @@ const float BLOCK_SCALE_X = 2.0;
 const float BLOCK_SCALE_Y = 0.25;
 const float BLOCK_SCALE_Z = 0.5;
 
-const float GRAVITY = -0.000002;
+const float GRAVITY = -0.0000002;
 
 
 // STRUCTS
