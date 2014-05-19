@@ -16,7 +16,7 @@ BlockManager::~BlockManager(void)
 void BlockManager::initBlockList(){
 
 	
-	blockList->push_back(Block(glm::vec3(0.2, 0.0, 1.0))); // add block to list with specific translation
+	blockList->push_back(Block(glm::vec3(0.1, 1.0, 1.0))); // add block to list with specific translation
 	blockList->push_back(Block());  // add block with default translation
 
 }// end initBlockList
