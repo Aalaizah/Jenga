@@ -1,5 +1,5 @@
 //***System singleton for camera***
-#pragma once
+/*#pragma once
 #include "System.h"
 
 class SystemClass
@@ -124,6 +124,6 @@ private:
 	void (*m_pMouseWheel) (int wheel, int direction, int x, int y); //Mouse Wheel Functor
 
 	bool InitCallbacks(void); // Indicates OpenGL what functors are going to be used as callbacks
-};
+};*/
 
 //***end***

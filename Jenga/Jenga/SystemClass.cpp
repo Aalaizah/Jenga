@@ -1,4 +1,4 @@
-#include "SystemClass.h"
+/*#include "SystemClass.h"
 
 //  SystemClass
 SystemClass* SystemClass::m_pInstance = nullptr;
@@ -266,4 +266,4 @@ void SystemClass::StartRenderLoop()
 
 	if(m_pDisplay != nullptr)
 		glutMainLoop();
-}
+}*/

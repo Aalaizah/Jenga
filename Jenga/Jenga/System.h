@@ -35,7 +35,6 @@ class BlockManager;
 #include <glm\gtx\transform.hpp>
 
 //Our Headers
-#include "SystemClass.h"
 #include "Camera.h"
 #include "World.h"
 #include "BlockManager.h"

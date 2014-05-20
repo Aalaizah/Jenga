@@ -3,7 +3,7 @@
 using namespace std;
 
 int window;
-Camera* mainCam;
+Camera mainCam;
 BlockManager* bManager;
 
 glm::vec3 redColor;
@@ -23,6 +23,7 @@ World::~World(void)
 void idle (void)
 {
     //  Call display function (draw the current frame)
+	//mainCam.Idle();
     glutPostRedisplay();
 }
 
@@ -36,6 +37,9 @@ void display(void)
 
 	//Resets transformations
 	glLoadIdentity();
+
+	//Camera idle
+	mainCam.Idle();
 
 	// Rotate when user changes rotate_x and rotate_y
   glRotatef( rotate_x, 1.0, 0.0, 0.0 );
@@ -132,6 +136,9 @@ void specialKeys( int key, int x, int y ) {
  
   else if (key == GLUT_KEY_DOWN)
     rotate_x -= 5;
+
+  else if (key == GLUT_KEY_CTRL_L || key == GLUT_KEY_CTRL_R) //ctrl
+		mainCam.ChangeView(true);
  
   //  Request display update
   glutPostRedisplay();
@@ -151,7 +158,8 @@ void init (void)
     glOrtho(-10.0, 10.0, -10.0, 10.0, -10.0, 10.0);
 
 // camera init
-	mainCam = Camera::GetInstance();
+	mainCam = Camera(0.0f, -0.25f, 0.0f);
+
 	bManager = new BlockManager();
 
 // Block Manager Init

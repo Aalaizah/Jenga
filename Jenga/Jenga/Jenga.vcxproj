@@ -72,13 +72,11 @@
     <ClInclude Include="Camera.h" />
     <ClInclude Include="World.h" />
     <ClInclude Include="System.h" />
-    <ClInclude Include="SystemClass.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="BlockManager.cpp" />
     <ClCompile Include="Camera.cpp" />
     <ClCompile Include="World.cpp" />
-    <ClCompile Include="SystemClass.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
